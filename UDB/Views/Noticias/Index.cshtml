@@ -1,0 +1,60 @@
+﻿@model IEnumerable<UDB.Models.Noticias>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Universidad Don Bosco</h1>
+</div>
+
+<div class="d-flex flex-row justify-content-around align-items-center">
+    <div class="column">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/qMbdula-4Fs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+
+    <div class="column m-3">
+        <p>La Universidad Don Bosco es una institución salesiana de educación superior con 35 años de trayectoria. Forma parte de la red de Instituciones Salesianas de Educación Superior (IUS) en el mundo.</p>
+
+        <p>Somos referente en El Salvador y Centroamérica por nuestro modelo educativo e innovación curricular para la formación integral de la persona, a través de un enfoque por competencias.</p>
+        <p> Desde 2019, fortalecemos nuestra oferta académica en Educación a Distancia al incorporar las siguientes carreras:</p>
+        
+    </div>
+</div>
+
+    <p>
+        <a asp-action="Create"></a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Noticia)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Noticia)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id"></a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id"></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
